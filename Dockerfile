@@ -1,34 +1,29 @@
-# Dockerfile for React Component Library Assignment
+# Use an official Node.js runtime as a parent image
+FROM node:18 AS build
 
-# Use the official Node.js image as the base image
-FROM node:16 AS build
+# Set the working directory
+WORKDIR /app
 
-# Set the working directory in the container
-WORKDIR /xu_hang_ui_garden
-
-# Copy the package.json and package-lock.json files to the working directory
+# Copy package.json and package-lock.json to the container
 COPY package*.json ./
 
-# Install the project dependencies
+# Install dependencies
 RUN npm install
 
-# Copy the rest of the application source code to the working directory
+# Copy the entire project to the container
 COPY . .
 
-# Build the application for production
+# Build the project for production
 RUN npm run build
 
-# Use the official Nginx image to serve the build files
+# Use a lightweight web server (nginx) to serve the static files
 FROM nginx:alpine
 
-# Copy the build files to the Nginx html directory
-COPY --from=build /xu_hang_ui_garden/build /usr/share/nginx/html
+# Copy the build files from the previous step to the nginx public directory
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Expose port 8083 to the host machine
+# Expose the port the app will run on
 EXPOSE 8083
 
-# Start the Nginx server
+# Start nginx
 CMD ["nginx", "-g", "daemon off;"]
-
-# Metadata
-LABEL maintainer="xu_hang_coding_assignment12"

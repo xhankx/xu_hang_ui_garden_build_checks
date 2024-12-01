@@ -6,4 +6,4 @@ export { default as Card } from './Card';
 export { default as RadioButton } from './Radio_button';
 //export { default as Table } from './Table';
 export { default as HeroImage } from './Hero_image';
-//export { default as Image } from './Image';
+export { default as Image } from './Img';

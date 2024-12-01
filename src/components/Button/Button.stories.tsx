@@ -1,5 +1,6 @@
+//Button.stories.tsx
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import Button from './Button';
 
 const meta: Meta<typeof Button> = {
@@ -9,7 +10,7 @@ const meta: Meta<typeof Button> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryFn<typeof Button>;
 
 export const Default: Story = (args) => (
   <Button data-testId="InputField-id" {...args} />

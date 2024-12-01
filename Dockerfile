@@ -1,10 +1,10 @@
-# Use an official Node.js runtime as a parent image
+# Step 1: Build the React application
 FROM node:18 AS build
 
-# Set the working directory
-WORKDIR /app
+# Set the working directory inside the container
+WORKDIR /xu_hang_ui_garden
 
-# Copy package.json and package-lock.json to the container
+# Copy package.json and package-lock.json for dependency installation
 COPY package*.json ./
 
 # Install dependencies
@@ -13,17 +13,17 @@ RUN npm install
 # Copy the entire project to the container
 COPY . .
 
-# Build the project for production
+# Build the app
 RUN npm run build
 
-# Use a lightweight web server (nginx) to serve the static files
+# Step 2: Set up NGINX to serve the production build
 FROM nginx:alpine
 
-# Copy the build files from the previous step to the nginx public directory
-COPY --from=build /app/build /usr/share/nginx/html
+# Copy the build output from the previous step into NGINX's default directory
+COPY --from=build /xu_hang_ui_garden/dist /usr/share/nginx/html
 
-# Expose the port the app will run on
+# Expose port 8083 for the app to run on
 EXPOSE 8083
 
-# Start nginx
+# Start NGINX when the container runs
 CMD ["nginx", "-g", "daemon off;"]

@@ -1,40 +1,39 @@
+import path from 'path';
+import typescript from 'rollup-plugin-typescript2';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import postcss from 'rollup-plugin-postcss';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import typescript from '@rollup/plugin-typescript';
-import babel from '@rollup/plugin-babel';
-import postcss from 'rollup-plugin-postcss';
-import { terser } from '@rollup/plugin-terser';
+import { terser } from 'rollup-plugin-terser';
 
-
-
-const packageJson = require('./package.json');
+// Path to the entry file
+const input = 'src/index.ts';
 
 export default {
-    input: 'src/index.ts',
-    output: [
-      {
-        file: packageJson.main,
-        format: 'cjs',
-        sourcemap: true,
-      },
-      {
-        file: packageJson.module,
-        format: 'esm',
-        sourcemap: true,
-      },
-    ],
-    plugins: [
-      peerDepsExternal(),
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
-      babel({
-        exclude: 'node_modules/**',
-        babelHelpers: 'bundled',
-      }),
-      postcss(),
-      terser(), // Updated to use terser directly
-    ],
-    external: Object.keys(packageJson.peerDependencies || {}),
-  };
+  input, // The entry point of your library
+  output: [
+    {
+      file: path.resolve(__dirname, 'dist/index.cjs.js'), // CommonJS bundle
+      format: 'cjs',
+      sourcemap: true,
+    },
+    {
+      file: path.resolve(__dirname, 'dist/index.esm.js'), // ES module bundle
+      format: 'esm',
+      sourcemap: true,
+    },
+  ],
+  external: [
+    'react',
+    'react-dom',
+    'styled-components', // Exclude react and styled-components from the bundle
+  ],
+  plugins: [
+    peerDepsExternal(), // Exclude peer dependencies from the bundle
+    resolve(), // Resolve node modules
+    commonjs(), // Convert CommonJS to ES6
+    typescript(), // Use TypeScript with Rollup
+    postcss(), // Process CSS (needed for styled-components)
+    terser(), // Minify the bundle
+  ],
+};

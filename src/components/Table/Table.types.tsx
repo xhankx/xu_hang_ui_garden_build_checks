@@ -13,6 +13,7 @@ export interface TableProps {
   export interface TableCellProps {
     children: React.ReactNode;
     isHeader?: boolean;
+    colSpan?: number; // Add colSpan as an optional prop
   }
   
   export interface TableFooterProps {

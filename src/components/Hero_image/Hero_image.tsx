@@ -2,7 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { type HeroImageProps } from './Hero_image.types';
 
-const HeroContainer = styled.div<HeroImageProps>`
+interface StyledHeroContainerProps {
+  imageUrl: string;
+  height?: string;
+}
+
+const HeroContainer = styled.div<StyledHeroContainerProps>`
   position: relative;
   width: 100%;
   height: ${(props) => props.height || '400px'};

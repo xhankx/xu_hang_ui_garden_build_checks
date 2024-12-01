@@ -2,11 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { type DropdownProps } from './Dropdown.types';
 
+// Create a type specifically for the styled component that omits unnecessary props
+type StyledSelectProps = Omit<DropdownProps, 'options' | 'onChange'>;
+
 const DropdownContainer = styled.div`
   margin: 16px 0;
 `;
 
-const StyledSelect = styled.select<DropdownProps>`
+const StyledSelect = styled.select<StyledSelectProps>`
   padding: 10px;
   font-size: 1rem;
   border-radius: 5px;

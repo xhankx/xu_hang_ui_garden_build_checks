@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { type CardProps } from './Card.types';
 
-const CardContainer = styled.div<CardProps>`
+// Create a type specifically for the styled CardContainer that omits unnecessary props
+type StyledCardContainerProps = Omit<CardProps, 'title' | 'content'>;
+
+// Styled-components for Card Component
+const CardContainer = styled.div<StyledCardContainerProps>`
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
@@ -37,6 +41,7 @@ const CardText = styled.p`
   color: #666;
 `;
 
+// Functional Card Component
 const Card: React.FC<CardProps> = ({ title, content, imageUrl, backgroundColor, size }) => {
   return (
     <CardContainer backgroundColor={backgroundColor} size={size}>

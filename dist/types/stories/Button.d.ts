@@ -1,4 +1,3 @@
-import React from 'react';
 import './button.css';
 export interface ButtonProps {
     /** Is this the principal call to action on the page? */
@@ -13,4 +12,4 @@ export interface ButtonProps {
     onClick?: () => void;
 }
 /** Primary UI component for user interaction */
-export declare const Button: ({ primary, size, backgroundColor, label, ...props }: ButtonProps) => React.JSX.Element;
+export declare const Button: ({ primary, size, backgroundColor, label, ...props }: ButtonProps) => import("react/jsx-runtime").JSX.Element;

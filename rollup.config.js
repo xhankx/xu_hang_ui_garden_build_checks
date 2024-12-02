@@ -32,7 +32,9 @@ export default {
     peerDepsExternal(), // Exclude peer dependencies from the bundle
     resolve(), // Resolve node modules
     commonjs(), // Convert CommonJS to ES6
-    typescript(), // Use TypeScript with Rollup
+    typescript({
+      useTsconfigDeclarationDir: true, // Use `declarationDir` from `tsconfig.json`
+    }), // Use TypeScript with Rollup
     postcss(), // Process CSS (needed for styled-components)
     terser(), // Minify the bundle
   ],

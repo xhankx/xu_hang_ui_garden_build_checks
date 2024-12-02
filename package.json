@@ -22,13 +22,13 @@
     "react-dom": "^18.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "rollup -c",
     "dev": "rollup -c --watch",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "start": "react-scripts start --port 8083"
   },
   "eslintConfig": {
     "extends": [

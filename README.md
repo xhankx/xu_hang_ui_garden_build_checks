@@ -19,7 +19,7 @@ This guide will show you how to build and run the web application on localhost:8
 3. **Run the Docker Container**:
     After building the Docker image, run this command to start the container:
 
-        docker run -d -p 8083:8083 --name xu_hang_coding_assignment12 xu_hang_coding_assignment12
+        docker run -d -p 8083:3000 --name xu_hang_coding_assignment12 xu_hang_coding_assignment12
 
 4. **Open your web browser and go to**:
 

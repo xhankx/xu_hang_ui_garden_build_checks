@@ -1,19 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ES5",                         // Keep ES5 for browser compatibility
-    "module": "ESNext",                       // Using ESNext module system
-    "moduleResolution": "Node",               // Helps with resolving Node-style modules
-    "strict": true,                           // Enables strict type checking
-    "esModuleInterop": true,                  // Allow default imports from modules that don't have a default export
-    "skipLibCheck": true,                     // Skip checking of declaration files
-    "forceConsistentCasingInFileNames": true, // Ensures consistent casing for file names
-    "outDir": "./dist",                       // Output directory for compiled files
-    "declaration": true,                      // Generate .d.ts declaration files
-    "declarationDir": "./dist/types",         // Output directory for .d.ts files
-    "allowSyntheticDefaultImports": true,     // Allow synthetic default imports
-    "jsx": "react-jsx",                       // Enables JSX support for React (react-jsx is default from React 17)
-    "skipDefaultLibCheck": true               // Skip checking the default library files
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
   },
-  "include": ["src/**/*"],                    // Include all files in the 'src' directory
-  "exclude": ["node_modules", "dist"]         // Exclude node_modules and dist directories
+  "include": [
+    "src"
+  ]
 }

@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Step 2: Expose port for development server
-EXPOSE 8083
+EXPOSE 3000
 
 # Run the app using `npm start` for Create React App
 CMD ["npm", "start"]

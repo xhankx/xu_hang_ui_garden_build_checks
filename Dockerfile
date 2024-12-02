@@ -13,17 +13,8 @@ RUN npm install
 # Copy the entire project to the container
 COPY . .
 
-# Build the app
-RUN npm run build
-
-# Step 2: Set up NGINX to serve the production build
-FROM nginx:alpine
-
-# Copy the build output from the previous step into NGINX's default directory
-COPY --from=build /xu_hang_ui_garden/dist /usr/share/nginx/html
-
-# Expose port 8083 for the app to run on
+# Step 2: Expose port for development server
 EXPOSE 8083
 
-# Start NGINX when the container runs
-CMD ["nginx", "-g", "daemon off;"]
+# Run the app using `npm start` for Create React App
+CMD ["npm", "start"]

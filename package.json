@@ -3,7 +3,7 @@
     "start": "react-scripts start",
     "build": "rollup -c --bundleConfigAsCjs",
     "test": "jest",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 3000",
     "build-storybook": "storybook build",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",

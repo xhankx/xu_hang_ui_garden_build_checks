@@ -22,3 +22,7 @@ docker build -t xu_hang_coding_assignment13 .
 After building the Docker image, run this command to start the container:
 
 docker run -d -p 8018:3000 --name xu_hang_coding_assignment13 xu_hang_coding_assignment13
+
+### 3. Open your web browser and go to:
+
+http://localhost:8018

@@ -1,6 +1,4 @@
 {
-  "version": "1.0.1",
-  "description": " A simple react component library that contains(button, card, dropdown, heroImage, Image, Label, RadioButton, Table, Text)",
   "scripts": {
     "start": "react-scripts start",
     "build": "rollup -c --bundleConfigAsCjs",

@@ -1,6 +1,7 @@
 # React Component Library - Docker Setup
 
-This guide will walk you through the steps to build and run the React Component Library on your local machine using Docker. The application will be accessible on `localhost:8083`.
+This guide will show you how to build and run the web application on 
+ 'localhost:8018'.
 
 ---
 
@@ -12,7 +13,12 @@ This guide will walk you through the steps to build and run the React Component 
 
 ## Build and Run Instructions
 
-### 1. Build the Docker Image
-Navigate to the project directory containing the `Dockerfile` in your terminal and run the following command:
-```bash
-docker build -t xu_hang_coding_assignment12 .
+### 1. Build the Docker Image:
+Navigate to the project directory containing the Dockerfile and run:
+
+docker build -t xu_hang_coding_assignment13 .
+
+### 2. Run the Docker Container:
+After building the Docker image, run this command to start the container:
+
+docker run -d -p 8018:3000 --name xu_hang_coding_assignment13 xu_hang_coding_assignment13

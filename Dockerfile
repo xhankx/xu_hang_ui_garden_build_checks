@@ -17,5 +17,5 @@ RUN npm run build
 # Expose port 8018
 EXPOSE 8018
 
-# Start the application
-CMD ["npm", "start"]
+# Start Storybook
+CMD ["npm", "run", "storybook"]

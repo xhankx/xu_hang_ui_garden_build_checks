@@ -16,7 +16,7 @@ export const Default: Story = (args) => (
 );
 Default.args = {
   imageUrl:
-    'https://tse3.mm.bing.net/th?id=OIP.c4MCiDFgSGLsR_7-4-j0PwHaEK&pid=Api&P=0&h=180',
+    'https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg',
   altText: 'Example Image',
   disabled: false,
   backgroundColor: '#55bd90',
@@ -28,7 +28,7 @@ export const Disabled: Story = (args) => (
 );
 Disabled.args = {
   imageUrl:
-    'https://tse3.mm.bing.net/th?id=OIP.c4MCiDFgSGLsR_7-4-j0PwHaEK&pid=Api&P=0&h=180',
+    'https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg',
   altText: 'Example Image',
   disabled: true,
   headerText: 'Default HeroImage',
